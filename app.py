@@ -11,13 +11,34 @@ import isa
 
 FT = 0.3048  # metres per foot
 
-st.set_page_config(page_title="ISA Calculator", page_icon="✈️", layout="wide")
+# ==================================================================
+# EDIT THIS SECTION WITH YOUR OWN DETAILS (only place you need to change)
+# ==================================================================
+PROJECT_TITLE = "Standard Atmosphere (ISA) Calculator"
+TEAM_MEMBERS = [
+    "Sudhan J",              # <- replace with your full name
+    "revathi I",
+    "bhavadharini S",
+    "KANISHKA B",
+]
+COLLEGE = "KPR INSTITUTE OF ENGINEERING AND TECHNNOLOGY"
+DEPARTMENT = " Mechanical Engineering AND INFORMATION TECHNOLOGY"
+YEAR = "2nd Year"
+GUIDE = ""        # set to "" to hide this line
+GITHUB_URL = "https://github.com/sudhanj73-hash/isa-calculator"
+# ==================================================================
 
-st.title("✈️ Standard Atmosphere (ISA) Calculator")
+TEAM_TEXT = ", ".join(TEAM_MEMBERS)
+
+st.set_page_config(page_title=f"{PROJECT_TITLE} | {TEAM_MEMBERS[0]}",
+                   page_icon="✈️", layout="wide")
+
+st.title(f"✈️ {PROJECT_TITLE}")
 st.caption(
     "Pressure, temperature, density and speed of sound from 0 to 20 km, "
     "with density altitude and hot/cold day correction."
 )
+st.markdown(f"**Developed by:** {TEAM_TEXT}  \n{DEPARTMENT}, {COLLEGE}")
 
 # ------------------------------------------------------------------
 # Sidebar inputs
@@ -44,6 +65,12 @@ h = min(alt_input * to_m, 20000.0)
 st.sidebar.header("Output units")
 p_unit = st.sidebar.selectbox("Pressure", ["Pa", "kPa", "hPa (mbar)", "psi", "atm"])
 t_unit = st.sidebar.selectbox("Temperature", ["°C", "K", "°F"])
+
+st.sidebar.divider()
+st.sidebar.markdown("**Project by**")
+for member in TEAM_MEMBERS:
+    st.sidebar.markdown(f"- {member}")
+st.sidebar.markdown(f"[Source code on GitHub]({GITHUB_URL})")
 
 # ------------------------------------------------------------------
 # Calculation
@@ -94,8 +121,8 @@ elif delta_T < 0:
 # ------------------------------------------------------------------
 # Tabs
 # ------------------------------------------------------------------
-tab_plots, tab_table, tab_theory, tab_check = st.tabs(
-    ["📈 Graphs", "📋 Table", "📘 How it works", "✅ Validation"])
+tab_plots, tab_table, tab_theory, tab_check, tab_about = st.tabs(
+    ["📈 Graphs", "📋 Table", "📘 How it works", "✅ Validation", "👥 About"])
 
 # data for the plots (0 to 20 km)
 alts = np.linspace(0, 20000, 201)
@@ -192,5 +219,24 @@ with tab_check:
         })
     st.dataframe(check, width="stretch", hide_index=True)
 
+with tab_about:
+    st.subheader("About this project")
+    st.write(
+        "This web app calculates the properties of the International Standard "
+        "Atmosphere up to 20 km and shows how hot or cold days change air density "
+        "and density altitude. It was built as a mechanical engineering project "
+        "related to the aviation sector."
+    )
+    st.markdown("#### Team")
+    for member in TEAM_MEMBERS:
+        st.markdown(f"- {member}")
+    st.markdown(f"**{DEPARTMENT}**  \n{COLLEGE} ({YEAR})")
+    if GUIDE:
+        st.markdown(f"**Guide:** {GUIDE}")
+    st.markdown(f"**Source code:** [{GITHUB_URL}]({GITHUB_URL})")
+    st.markdown("#### Tools used")
+    st.write("Python, Streamlit, NumPy, Plotly")
+
 st.divider()
-st.caption("Valid for 0–20 km, dry air, standard ISA model. Altitude input is treated as pressure altitude.")
+st.caption(f"Valid for 0–20 km, dry air, standard ISA model. Altitude input is treated "
+           f"as pressure altitude.  |  © {TEAM_TEXT}")
