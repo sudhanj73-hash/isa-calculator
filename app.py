@@ -16,12 +16,12 @@ FT = 0.3048  # metres per foot
 # ==================================================================
 PROJECT_TITLE = "Standard Atmosphere (ISA) Calculator"
 TEAM_MEMBERS = [
-    "Sudhan J",              # <- replace with your full name
-    "revathi I",
-    "bhavadharini S",
+    "SUDHAN J",              # <- replace with your full name
+    "REVATHI I",
+    "BHAVADHARINI S",
     "KANISHKA B",
 ]
-COLLEGE = "KPR INSTITUTE OF ENGINEERING AND TECHNNOLOGY"
+COLLEGE = "KPR INSTITUTE OF ENGINEERING AND TECHNOLOGY"
 DEPARTMENT = " Mechanical Engineering AND INFORMATION TECHNOLOGY"
 YEAR = "2nd Year"
 GUIDE = ""        # set to "" to hide this line
