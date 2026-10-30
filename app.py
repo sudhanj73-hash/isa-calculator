@@ -16,13 +16,13 @@ FT = 0.3048  # metres per foot
 # ==================================================================
 PROJECT_TITLE = "Standard Atmosphere (ISA) Calculator"
 TEAM_MEMBERS = [
-    "SUDHAN J",              # <- replace with your full name
-    "REVATHI I",
-    "BHAVADHARINI S",
-    "KANISHKA B",
+    "SUDHAN J -ME",              # <- replace with your full name
+    "REVATHI I-ME",
+    "BHAVADHARINI S - IT",
+    "KANISHKA B - IT",
 ]
 COLLEGE = "KPR INSTITUTE OF ENGINEERING AND TECHNOLOGY"
-DEPARTMENT = " Mechanical Engineering AND INFORMATION TECHNOLOGY"
+DEPARTMENT = "MECH AND IT"
 YEAR = "2nd Year"
 GUIDE = ""        # set to "" to hide this line
 GITHUB_URL = "https://github.com/sudhanj73-hash/isa-calculator"
